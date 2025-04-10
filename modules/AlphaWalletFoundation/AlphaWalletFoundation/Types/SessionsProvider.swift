@@ -183,6 +183,8 @@ public class ApiTransporterFactory {
                 policy = ApiTransporterRetryPolicy(retryableHTTPStatusCodes: [429, 408, 500, 502, 503, 504, 403])
             case .xDai, .classic, .main, .callisto, .binance_smart_chain, .heco, .fantom, .avalanche, .polygon, .optimistic, .arbitrum, .palm, .klaytnCypress, .ioTeX, .cronosMainnet, .okx, .binance_smart_chain_testnet, .heco_testnet, .fantom_testnet, .avalanche_testnet, .cronosTestnet, .palmTestnet, .klaytnBaobabTestnet, .ioTeXTestnet, .optimismGoerli, .arbitrumGoerli, .custom:
                 policy = ApiTransporterRetryPolicy()
+            case .monet:
+                policy = ApiTransporterRetryPolicy()
             }
 
             let transporter = BaseApiTransporter(policy: policy)

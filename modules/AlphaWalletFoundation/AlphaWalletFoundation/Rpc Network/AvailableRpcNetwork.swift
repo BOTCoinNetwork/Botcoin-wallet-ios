@@ -107,11 +107,11 @@ fileprivate func filterChainAndConvertToCustomRPC(chains: [RpcNetwork]) -> [Cust
 extension SaveCustomRpcManualEntryViewModel {
 
     public func validate(customRpc: CustomRPC) -> Result<CustomRPC, SaveCustomRpcErrors> {
-        return validate(chainName: customRpc.chainName, rpcEndpoint: customRpc.rpcEndpoint, chainID: String(customRpc.chainID), symbol: customRpc.symbol ?? "", explorerEndpoint: customRpc.explorerEndpoint ?? "", isTestNet: customRpc.isTestnet)
+        return validate(chainName: customRpc.chainName, rpcEndpoint: customRpc.rpcEndpoint, chainID: String(customRpc.chainID), symbol: customRpc.symbol ?? "", explorerEndpoint: customRpc.explorerEndpoint ?? "", isTestNet: customRpc.isTestnet, isMonet: customRpc.isMonet)
     }
 
     public func validate(entry: RpcNetwork) -> Result<CustomRPC, SaveCustomRpcErrors> {
-        return validate(chainName: entry.name, rpcEndpoint: entry.rpc.first ?? "", chainID: String(entry.chainId), symbol: entry.nativeCurrency.symbol, explorerEndpoint: entry.infoURL, isTestNet: entry.isTestNet)
+        return validate(chainName: entry.name, rpcEndpoint: entry.rpc.first ?? "", chainID: String(entry.chainId), symbol: entry.nativeCurrency.symbol, explorerEndpoint: entry.infoURL, isTestNet: entry.isTestNet, isMonet: false)
     }
 }
 

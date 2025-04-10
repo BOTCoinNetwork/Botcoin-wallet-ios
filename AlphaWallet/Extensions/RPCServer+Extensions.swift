@@ -46,11 +46,14 @@ extension RPCServer {
         case .arbitrumGoerli: return "Arbitrum Goerli"
         case .okx: return "OKXChain Mainnet"
         case .sepolia: return "Sepolia"
+        case .monet:
+            return "BotCoin"
         }
     }
 
     var iconImage: UIImage? {
         switch self {
+        case .monet: return R.image.eth()
         case .main: return R.image.eth()
         case .xDai: return R.image.xDai()
         case .classic: return R.image.tokenEtc()
@@ -80,6 +83,7 @@ extension RPCServer {
 
     var blockChainNameColor: UIColor {
         switch self {
+        case .monet: return Configuration.Color.Semantic.blockChainMain
         case .main: return Configuration.Color.Semantic.blockChainMain
         case .classic: return Configuration.Color.Semantic.blockChainClassic
         case .callisto: return Configuration.Color.Semantic.blockChainCallisto
@@ -111,6 +115,7 @@ extension RPCServer {
 
     var staticOverlayIcon: UIImage? {
         switch self {
+        case .monet: return nil
         case .main: return R.image.iconsNetworkEth()
         case .xDai: return R.image.iconsNetworkXdai()
         case .classic: return nil

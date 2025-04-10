@@ -69,6 +69,12 @@ class SaveCustomRpcManualEntryView: UIView {
 
         return view
     }()
+    
+    var isMonetView: SwitchView = {
+        let view = SwitchView()
+
+        return view
+    }()
 
     init(frame: CGRect, isEmbedded: Bool) {
         super.init(frame: frame)
@@ -100,6 +106,7 @@ class SaveCustomRpcManualEntryView: UIView {
             symbolTextField.defaultLayout(),
             explorerEndpointTextField.defaultLayout(),
             isTestNetworkView,
+            isMonetView,
             .spacer(height: 40)
         ])
         addSubview(scrollView)

@@ -475,6 +475,8 @@ private extension RPCServer {
         case .arbitrumGoerli: return ""
         case .okx: return "OKC"
         case .sepolia: return ""
+        case .monet:
+            return ""
         }
     }
 }

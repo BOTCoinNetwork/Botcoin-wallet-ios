@@ -72,6 +72,7 @@ class SaveCustomRpcManualEntryViewController: UIViewController, SaveCustomRpcHan
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapSelected))
         editView.addBackgroundGestureRecognizer(tap)
         editView.isTestNetworkView.configure(viewModel: SwitchViewViewModel(text: R.string.localizable.addrpcServerIsTestnetTitle(), isOn: viewModel.isTestnet))
+        editView.isMonetView.configure(viewModel: SwitchViewViewModel(text: "This is monet", isOn: viewModel.isMonet))
         editView.addSaveButtonTarget(self, action: #selector(handleSaveCustomRPC))
     }
 
@@ -90,7 +91,8 @@ class SaveCustomRpcManualEntryViewController: UIViewController, SaveCustomRpcHan
             chainID: editView.chainIDTextField.value,
             symbol: editView.symbolTextField.value,
             explorerEndpoint: editView.explorerEndpointTextField.value,
-            isTestNet: editView.isTestNetworkView.isOn)
+            isTestNet: editView.isTestNetworkView.isOn,
+            isMonet: editView.isMonetView.isOn)
         view.endEditing(true)
         switch result {
         case .failure(.list(let errors)):

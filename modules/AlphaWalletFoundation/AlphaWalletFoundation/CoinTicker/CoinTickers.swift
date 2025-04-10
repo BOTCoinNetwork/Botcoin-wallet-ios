@@ -146,6 +146,8 @@ extension CoinTickerServiceIdentifieble {
         switch server {
         case .main, .classic, .callisto, .custom, .xDai, .binance_smart_chain, .binance_smart_chain_testnet, .heco, .heco_testnet, .fantom, .fantom_testnet, .avalanche, .avalanche_testnet, .polygon, .amoy_testnet, .optimistic, .cronosTestnet, .arbitrum, .palm, .palmTestnet, .klaytnCypress, .klaytnBaobabTestnet, .ioTeX, .ioTeXTestnet, .optimismGoerli, .arbitrumGoerli, .cronosMainnet, .okx, .sepolia:
             return CoinGeckoTickersFetcher.self
+        case .monet:
+            return CoinGeckoTickersFetcher.self
         }
     }
 }

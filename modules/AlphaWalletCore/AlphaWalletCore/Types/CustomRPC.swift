@@ -9,8 +9,9 @@ public struct CustomRPC: Codable, Hashable {
     public let explorerEndpoint: String?
     public let etherscanCompatibleType: RPCServer.EtherscanCompatibleType
     public let isTestnet: Bool
+    public let isMonet: Bool
 
-    public init(chainID: Int, nativeCryptoTokenName: String?, chainName: String, symbol: String?, rpcEndpoint: String, explorerEndpoint: String?, etherscanCompatibleType: RPCServer.EtherscanCompatibleType, isTestnet: Bool) {
+    public init(chainID: Int, nativeCryptoTokenName: String?, chainName: String, symbol: String?, rpcEndpoint: String, explorerEndpoint: String?, etherscanCompatibleType: RPCServer.EtherscanCompatibleType, isTestnet: Bool, isMonet: Bool = false) {
         self.chainID = chainID
         self.nativeCryptoTokenName = nativeCryptoTokenName
         self.chainName = chainName
@@ -19,6 +20,7 @@ public struct CustomRPC: Codable, Hashable {
         self.explorerEndpoint = explorerEndpoint
         self.etherscanCompatibleType = etherscanCompatibleType
         self.isTestnet = isTestnet
+        self.isMonet = isMonet
     }
 
     public static func custom(chainId: Int) -> CustomRPC {

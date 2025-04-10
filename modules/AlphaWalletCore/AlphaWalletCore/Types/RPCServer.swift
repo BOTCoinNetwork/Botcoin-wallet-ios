@@ -40,9 +40,11 @@ public enum RPCServer: Hashable, CaseIterable {
     case arbitrumGoerli
     case okx
     case sepolia
+    case monet
 
     public var chainID: Int {
         switch self {
+        case .monet: return 1
         case .main: return 1
         case .classic: return 61
         case .callisto: return 104729
@@ -74,11 +76,23 @@ public enum RPCServer: Hashable, CaseIterable {
         case .sepolia: return 11155111
         }
     }
+    
+    public var isMonet: Bool {
+        switch self {
+        case .custom(let custom):
+            return custom.isMonet
+        case .monet:
+            return true
+        default:
+            return false
+        }
+    }
 
     //We'll have to manually new cases here
     //Cannot be `let` as the chains can change dynamically without the app being restarted (i.e. killed). The UI can be restarted though (when switching changes)
     public static var allCases: [RPCServer] {
         return [
+            .monet,
             .main,
             .classic,
             .xDai,

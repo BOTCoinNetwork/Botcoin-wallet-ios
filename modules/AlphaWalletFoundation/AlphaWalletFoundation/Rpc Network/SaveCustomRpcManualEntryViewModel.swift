@@ -67,6 +67,10 @@ public struct SaveCustomRpcManualEntryViewModel {
     public var isTestnet: Bool {
         return model.isTestnet
     }
+    
+    public var isMonet: Bool {
+        return model.isMonet
+    }
 
     public var isAddOperation: Bool {
         switch operation {
@@ -85,7 +89,7 @@ public struct SaveCustomRpcManualEntryViewModel {
 
 extension SaveCustomRpcManualEntryViewModel {
 
-    public func validate(chainName: String, rpcEndpoint: String, chainID: String, symbol: String, explorerEndpoint: String, isTestNet: Bool) -> Result<CustomRPC, SaveCustomRpcErrors> {
+    public func validate(chainName: String, rpcEndpoint: String, chainID: String, symbol: String, explorerEndpoint: String, isTestNet: Bool, isMonet: Bool) -> Result<CustomRPC, SaveCustomRpcErrors> {
         var errors: [SaveCustomRpcError] = []
 
         if chainName.trimmed.isEmpty {
@@ -97,7 +101,7 @@ extension SaveCustomRpcManualEntryViewModel {
         }
 
         if let chainIdInt = Int(chainId0xString: chainID.trimmed), chainIdInt > 0 {
-            if validateOtherChainIdExist(chainIdInt) {
+            if validateOtherChainIdExist(chainIdInt), !isMonet {
                 errors.append(.chainIDDuplicateField)
             }
         } else {
@@ -124,7 +128,8 @@ extension SaveCustomRpcManualEntryViewModel {
             rpcEndpoint: rpcEndpoint.trimmed,
             explorerEndpoint: explorerEndpoint.trimmed,
             etherscanCompatibleType: .unknown,
-            isTestnet: isTestNet)
+            isTestnet: isTestNet,
+            isMonet: isMonet)
         )
     }
 

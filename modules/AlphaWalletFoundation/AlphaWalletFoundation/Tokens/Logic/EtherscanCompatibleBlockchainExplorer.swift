@@ -445,6 +445,8 @@ class EtherscanCompatibleBlockchainExplorer: BlockchainExplorer {
             case .blockscout, .unknown:
                 return false
             }
+        case .monet:
+            return false
         }
     }
 }
@@ -590,6 +592,8 @@ fileprivate extension EtherscanCompatibleBlockchainExplorer.functional {
         case .main, .polygon, .binance_smart_chain, .binance_smart_chain_testnet, .optimistic, .cronosMainnet, .arbitrum, .avalanche, .avalanche_testnet:
             return true
         case .heco, .heco_testnet, .fantom, .fantom_testnet, .amoy_testnet, .klaytnCypress, .klaytnBaobabTestnet, .ioTeX, .ioTeXTestnet, .okx, .sepolia, .arbitrumGoerli, .classic, .xDai, .callisto, .cronosTestnet, .palm, .palmTestnet, .optimismGoerli, .custom:
+            return false
+        case .monet:
             return false
         }
     }
