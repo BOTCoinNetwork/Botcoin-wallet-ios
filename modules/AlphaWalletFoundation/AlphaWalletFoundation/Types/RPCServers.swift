@@ -432,7 +432,7 @@ extension RPCServer: Hashable, CaseIterable {
             case .arbitrumGoerli: return "https://arbitrum-goerli.infura.io/v3/\(Constants.Credentials.infuraKey)"
             case .okx: return "https://exchainrpc.okex.org/"
             case .sepolia: return "https://sepolia.infura.io/v3/\(Constants.Credentials.infuraKey)"
-            case .monet: return "http://192.168.0.191:8080"
+            case .monet: return "https://api.botcoin.network"
             }
         }()
         return URL(string: urlString)!
@@ -551,7 +551,7 @@ extension RPCServer: Hashable, CaseIterable {
 
     public var explorerName: String {
         switch self {
-        case .monet: return "Monetscan"
+        case .monet: return "Botcoinscan"
         case .main, .optimismGoerli, .arbitrumGoerli: return "Etherscan"
         case .classic, .custom, .callisto, .binance_smart_chain, .binance_smart_chain_testnet, .heco, .heco_testnet, .fantom, .fantom_testnet, .avalanche, .avalanche_testnet, .polygon, .amoy_testnet, .optimistic, .arbitrum, .palm, .palmTestnet, .klaytnCypress, .klaytnBaobabTestnet, .ioTeX, .ioTeXTestnet, .optimismGoerli, .sepolia: return "\(name) Explorer"
         case .xDai: return "Blockscout"
